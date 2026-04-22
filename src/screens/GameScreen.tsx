@@ -9,10 +9,10 @@ type State = {
     timeSpent: string
 }
 
-export class GameScreen extends React.Component<{}, State> {
+export class GameScreen extends React.Component<unknown, State> {
     stateService: StateService = StateService.instance
 
-    constructor(props) {
+    constructor(props: unknown) {
         super(props)
 
         this.state = {

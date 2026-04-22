@@ -2,13 +2,12 @@ import * as React from 'react'
 import {StateService} from '../services/StateService'
 import {InfoVisual} from '../components/InfoVisual'
 
-type State = {
-}
+type State = object
 
-export class InfoScreen extends React.Component<{}, State> {
+export class InfoScreen extends React.Component<unknown, State> {
     stateService: StateService = StateService.instance
 
-    constructor(props) {
+    constructor(props: unknown) {
         super(props)
 
         this.state = {
