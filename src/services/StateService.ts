@@ -2,13 +2,13 @@ import {ScreenType} from "../types/ScreenType";
 import signals from 'signals';
 import {TempaiGenerator} from "./HandGenerator";
 import {TempaiService} from "./TempaiService";
-import {WaitStructure} from "../types/HandStructures";
+import type {WaitStructure} from "../types/HandStructures";
 import {ResultType} from "../types/ResultType";
 
 const DEFAULT_HAND_LENGTH = 7
 const HAND_LENGTH_SETTING_NAME = 'HAND_LENGTH'
 
-    declare var window: any
+declare var window: any
 
 export class StateService {
     private tempaiGenerator = new TempaiGenerator()

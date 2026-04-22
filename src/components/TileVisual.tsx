@@ -1,6 +1,6 @@
 import * as React from "react";
 import {TileService} from "../services/TileService";
-import './tile.less';
+import './tile.css';
 import {StateService} from '../services/StateService'
 import {TileType} from "../types/TileType";
 

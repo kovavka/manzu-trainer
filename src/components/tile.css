@@ -1,0 +1,65 @@
+.tile {
+  z-index: 1;
+  padding: 1px;
+}
+.tile svg {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --red-color: #b93c3c;
+  --green-color: #004900;
+  --secondary-dark-color: #c1c1c1;
+  --tile-back-color: #ffab2d;
+  --tile-back-dark-color: #d49331;
+}
+.tile.tile--selected svg {
+  --primary-color: #07171d;
+  --secondary-color: #c3d4d9;
+  --red-color: #904349;
+  --green-color: #074d1d;
+  --secondary-dark-color: #96a6ab;
+  --tile-back-color: #c3953e;
+  --tile-back-dark-color: #a48441;
+}
+.tile.tile--wrong svg {
+  --primary-color: #420701;
+  --secondary-color: #a86d67;
+  --red-color: #8c1f19;
+  --green-color: #422401;
+  --secondary-dark-color: #8f544e;
+  --tile-back-color: #a84c13;
+  --tile-back-dark-color: #974214;
+}
+.tile.tile--missed svg {
+  --primary-color: #000c18;
+  --secondary-color: #808c98;
+  --red-color: #5d2a36;
+  --green-color: #003118;
+  --secondary-dark-color: #616d79;
+  --tile-back-color: #80622f;
+  --tile-back-dark-color: #6a5631;
+}
+.tile.tile--correct svg {
+  --primary-color: #284b28;
+  --secondary-color: #a7caa7;
+  --red-color: #846946;
+  --green-color: #286f28;
+  --secondary-dark-color: #88ab88;
+  --tile-back-color: #a7a03e;
+  --tile-back-dark-color: #929440;
+}
+.tile.tile--tsumo {
+  margin-right: 2vw;
+}
+.tile .tile__inner {
+  position: relative;
+  line-height: 0;
+}
+.tile .tile__box {
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.tile .tile__drawing {
+  position: absolute;
+  z-index: 1;
+}

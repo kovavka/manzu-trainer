@@ -3,7 +3,6 @@ import {StateService} from '../services/StateService'
 import {HandVisual} from '../components/HandVisual'
 import {VariantsVisual} from '../components/VariantsVisual'
 import {ResultType} from "../types/ResultType";
-import {MetricService} from "../services/MetriсService";
 
 type State = {
     resultType: ResultType
@@ -52,12 +51,10 @@ export class GameScreen extends React.Component<{}, State> {
     }
 
     onNewGameClick() {
-        MetricService.newGame()
         this.stateService.newGame()
     }
 
     onLengthSelected(value: number) {
-        MetricService.selectLength(value)
         this.stateService.selectLength(value)
     }
 

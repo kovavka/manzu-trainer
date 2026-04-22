@@ -1,5 +1,5 @@
 import {WaitPatternType} from "../types/WaitPatternType";
-import {WaitPattern, WaitStructure, HandStructure} from "../types/HandStructures";
+import type {WaitPattern, WaitStructure, HandStructure} from "../types/HandStructures";
 
 export class TempaiService {
     getWaitStructures(hand: number[], possibleTilesToWait: number[]): WaitStructure[] {
