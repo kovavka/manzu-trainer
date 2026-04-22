@@ -129,13 +129,13 @@ export class GameScreen extends React.Component<unknown, State> {
                      <div className="flex-container flex-container--between flex-container--align-end flex-container--margin-m">
                         <VariantsVisual/>
                          {this.state.resultType === ResultType.IDLE && (
-                             <div className="flat-btn flat-btn--s flat-btn--white">
-                                 <div className="flat-btn__caption" onClick={() => this.onConfirmClick()}>Confirm</div>
+                             <div className="flat-btn flat-btn--s flat-btn--white" onClick={() => this.onConfirmClick()}>
+                                 <div className="flat-btn__caption" >Confirm</div>
                              </div>
                          )}
                          {this.state.resultType !== ResultType.IDLE && (
-                             <div className="flat-btn flat-btn--s flat-btn--white">
-                                 <div className="flat-btn__caption" onClick={() => this.onNewGameClick()}>New game</div>
+                             <div className="flat-btn flat-btn--s flat-btn--white" onClick={() => this.onNewGameClick()}>
+                                 <div className="flat-btn__caption">New game</div>
                              </div>
                          )}
                      </div>
