@@ -10,10 +10,10 @@ type State = {
     missed: number[]
 }
 
-export class VariantsVisual extends React.Component<{}, State> {
+export class VariantsVisual extends React.Component<unknown, State> {
     stateService: StateService = StateService.instance
 
-    constructor(props) {
+    constructor(props: unknown) {
         super(props)
 
         this.state = {
@@ -42,7 +42,7 @@ export class VariantsVisual extends React.Component<{}, State> {
     }
 
     getOptions() {
-        let options: JSX.Element[] = []
+        const options: React.ReactElement[] = []
         for (let i=1; i<10; i++) {
             options.push(this.getTile(i))
         }
@@ -70,7 +70,7 @@ export class VariantsVisual extends React.Component<{}, State> {
         return TileType.IDLE
     }
 
-    getTile(tile: number): JSX.Element {
+    getTile(tile: number): React.ReactElement {
         return (
             <TileVisual key={tile}
                         tile={tile}

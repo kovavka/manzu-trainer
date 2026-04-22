@@ -1,3 +1,5 @@
+// eslint-disable-next-line
+// @ts-ignore
 export enum ResultType {
     IDLE,
     FAIL,

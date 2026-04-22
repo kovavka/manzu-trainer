@@ -2,16 +2,16 @@ import * as React from "react";
 import {TileVisual} from "./TileVisual";
 import {StateService} from '../services/StateService'
 import {TileType} from "../types/TileType";
-import {WaitPattern, WaitStructure} from "../types/HandStructures";
+import type {WaitPattern, WaitStructure} from "../types/HandStructures";
 
 type HandState = {
     structures: WaitStructure[]
 }
 
-export class InfoVisual extends React.Component<{}, HandState> {
+export class InfoVisual extends React.Component<unknown, HandState> {
     stateService: StateService = StateService.instance
 
-    constructor(props) {
+    constructor(props: unknown) {
         super(props)
 
         this.state = {

@@ -7,10 +7,10 @@ type HandState = {
     tiles: number[]
 }
 
-export class HandVisual extends React.Component<{}, HandState> {
+export class HandVisual extends React.Component<unknown, HandState> {
     stateService: StateService = StateService.instance
 
-    constructor(props) {
+    constructor(props: unknown) {
         super(props)
 
         this.state = {

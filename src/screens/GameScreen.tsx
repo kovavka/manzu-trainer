@@ -3,17 +3,16 @@ import {StateService} from '../services/StateService'
 import {HandVisual} from '../components/HandVisual'
 import {VariantsVisual} from '../components/VariantsVisual'
 import {ResultType} from "../types/ResultType";
-import {MetricService} from "../services/MetriсService";
 
 type State = {
     resultType: ResultType
     timeSpent: string
 }
 
-export class GameScreen extends React.Component<{}, State> {
+export class GameScreen extends React.Component<unknown, State> {
     stateService: StateService = StateService.instance
 
-    constructor(props) {
+    constructor(props: unknown) {
         super(props)
 
         this.state = {
@@ -52,12 +51,10 @@ export class GameScreen extends React.Component<{}, State> {
     }
 
     onNewGameClick() {
-        MetricService.newGame()
         this.stateService.newGame()
     }
 
     onLengthSelected(value: number) {
-        MetricService.selectLength(value)
         this.stateService.selectLength(value)
     }
 

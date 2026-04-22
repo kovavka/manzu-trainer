@@ -2,13 +2,14 @@ import {ScreenType} from "../types/ScreenType";
 import signals from 'signals';
 import {TempaiGenerator} from "./HandGenerator";
 import {TempaiService} from "./TempaiService";
-import {WaitStructure} from "../types/HandStructures";
+import type {WaitStructure} from "../types/HandStructures";
 import {ResultType} from "../types/ResultType";
 
 const DEFAULT_HAND_LENGTH = 7
 const HAND_LENGTH_SETTING_NAME = 'HAND_LENGTH'
 
-    declare var window: any
+// eslint-disable-next-line
+declare var window: any
 
 export class StateService {
     private tempaiGenerator = new TempaiGenerator()
@@ -16,14 +17,14 @@ export class StateService {
     private _currentScreen: ScreenType = ScreenType.PROCESSING
     private _resultType: ResultType = ResultType.IDLE
     private handLength: number
-    private _hand: number[]
-    private _waitStructures: WaitStructure[]
+    private _hand: number[] = []
+    private _waitStructures: WaitStructure[] = []
     private _selectedTiles: number[] = []
     private _wrong: number[] = []
     private _correct: number[] = []
     private _missed: number[] = []
-    private startTime: Date
-    private endTime: Date
+    private startTime: Date | undefined
+    private endTime: Date | undefined
 
     onChange: signals.Signal = new signals.Signal()
     onHandChanged: signals.Signal = new signals.Signal()
@@ -79,10 +80,10 @@ export class StateService {
             return ''
         }
 
-        let allSeconds = Math.floor((Number(this.endTime) - Number(this.startTime)) / 1000)
-        let min = Math.floor(allSeconds / 60)
-        let sec = allSeconds % 60
-        let secStr = sec > 9 ? sec.toString() : `0${sec}`
+        const allSeconds = Math.floor((Number(this.endTime) - Number(this.startTime)) / 1000)
+        const min = Math.floor(allSeconds / 60)
+        const sec = allSeconds % 60
+        const secStr = sec > 9 ? sec.toString() : `0${sec}`
         return `${min} : ${secStr}`
     }
 
@@ -107,7 +108,7 @@ export class StateService {
     }
 
     selectTile(tile: number) {
-        let index = this._selectedTiles.indexOf(tile)
+        const index = this._selectedTiles.indexOf(tile)
         if (index === -1) {
             this._selectedTiles.push(tile)
         } else {
@@ -123,7 +124,7 @@ export class StateService {
         this._correct = []
         this._missed = []
 
-        let tilesToComplete = this.tempaiService.getTilesToComplete(this._waitStructures)
+        const tilesToComplete = this.tempaiService.getTilesToComplete(this._waitStructures)
 
         console.log(tilesToComplete)
 
@@ -167,11 +168,11 @@ export class StateService {
     }
 
     private generateHand() {
-        let {hand, possibleTilesToWait} = this.tempaiGenerator.generate(this.handLength)
+        const {hand, possibleTilesToWait} = this.tempaiGenerator.generate(this.handLength)
         console.log(hand)
         console.log(possibleTilesToWait)
 
-        let waitStructures = this.tempaiService.getWaitStructures(hand, possibleTilesToWait)
+        const waitStructures = this.tempaiService.getWaitStructures(hand, possibleTilesToWait)
         console.log(waitStructures)
 
         if (waitStructures.length) {
@@ -193,7 +194,7 @@ export class StateService {
             return ResultType.FAIL
         }
 
-        let result = this._correct.length / (this._wrong.length + this._missed.length + this._correct.length)
+        const result = this._correct.length / (this._wrong.length + this._missed.length + this._correct.length)
         if (result <= 0.5) {
             return ResultType.BAD
         }

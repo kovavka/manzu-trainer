@@ -18,18 +18,20 @@
 
 .App {
   margin: 0 10vw;
+}
 
-  @media(max-width: 800px) {
+@media(max-width: 800px) {
+  .App {
     margin: 0 16px;
   }
+}
 
-  @media(min-width: 1500px) {
+@media(min-width: 1500px) {
+  .App {
     margin: 0 20vw;
   }
 }
 
-.mobile {
-  *:hover {
-    opacity: unset !important;
-  }
+.mobile:hover {
+  opacity: unset !important;
 }
